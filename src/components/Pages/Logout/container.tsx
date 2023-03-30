@@ -1,5 +1,7 @@
 import { LogoutPresenter } from "./presenter";
 import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase/firebase";
 
 type Props = {
     setIsSignedIn: React.Dispatch<React.SetStateAction<boolean>>
@@ -11,9 +13,15 @@ export const Logout: React.FC<Props> = (props: Props) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem('isSignedIn');
-        setIsSignedIn(false);
-        navigate('/');
+        signOut(auth)
+            .then(() => {
+                localStorage.removeItem('isSignedIn');
+                setIsSignedIn(false);
+                navigate('/');
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     return (
