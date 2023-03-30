@@ -1,0 +1,23 @@
+.global-nav {
+    display: flex;
+        justify-content: end;
+        align-items: center;
+    height: 50px;
+    background-color: rgb(50, 150, 200);
+}
+
+.global-nav a {
+    width: 100px;
+    color: rgb(250, 250, 250);
+    font-weight: bold;
+    text-decoration: none;
+    transform: all 0.3;
+}
+
+.global-nav a:hover {
+    color: rgb(200, 240, 240);
+}
+
+.global-nav a svg {
+    margin-right: 5px;
+}
