@@ -6,7 +6,12 @@ import {
     faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons'
 
-export const GlobalNavPresenter: React.FC = () => {
+type Props = {
+    isSignedIn: boolean;
+}
+
+export const GlobalNavPresenter: React.FC<Props> = (props: Props) => {
+    const { isSignedIn } = props;
 
     return (
         <nav className="global-nav">
@@ -16,15 +21,21 @@ export const GlobalNavPresenter: React.FC = () => {
                 Home
             </Link>
 
-            <Link to={"/login"}>
-                <FontAwesomeIcon icon={ faArrowRightToBracket } />
-                Login
-            </Link>
+            {!isSignedIn ? (
 
-            <Link to={"/logout"}>
-                <FontAwesomeIcon icon={ faArrowRightFromBracket } />
-                Logout
-            </Link>
+                <Link to={"/login"}>
+                    <FontAwesomeIcon icon={ faArrowRightToBracket } />
+                    Login
+                </Link>
+
+            ) : (
+
+                <Link to={"/logout"}>
+                    <FontAwesomeIcon icon={ faArrowRightFromBracket } />
+                    Logout
+                </Link>
+
+            )}
 
         </nav>
     );
