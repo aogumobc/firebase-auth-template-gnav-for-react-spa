@@ -15,7 +15,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login setIsSignedIn={setIsSignedIn} />} />
-                <Route path="/logout" element={<Logout />} />
+                <Route path="/logout" element={<Logout setIsSignedIn={setIsSignedIn} />} />
                 <Route path="/*" element={<div>404 Not Found</div>} />
             </Routes>
         </Router>
