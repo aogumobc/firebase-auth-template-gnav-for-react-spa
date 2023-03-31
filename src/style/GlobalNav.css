@@ -1,6 +1,6 @@
 .global-nav {
     display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         align-items: center;
     height: 50px;
     background-color: rgb(50, 150, 200);
