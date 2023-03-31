@@ -1,15 +1,17 @@
 type Props = {
     title: string;
-    onClick: () => void;
+    onHandleLoginWithGoogle: () => void;
+    onHandleLoginWithTwitter: () => void;
 };
 
 export const LoginPresenter: React.FC<Props> = (props: Props) => {
-    const { title, onClick } = props;
+    const { title, onHandleLoginWithGoogle, onHandleLoginWithTwitter } = props;
 
     return (
         <div>
             <h1>{title}</h1>
-            <button onClick={onClick}>Login</button>
+            <button onClick={ onHandleLoginWithGoogle }>Login with google</button>
+            <button onClick={ onHandleLoginWithTwitter }>Login with twitter</button>
         </div>
     );
 };

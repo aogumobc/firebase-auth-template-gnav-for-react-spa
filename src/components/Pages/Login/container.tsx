@@ -12,7 +12,7 @@ export const Login: React.FC<Props> = (props: Props) => {
     const { setIsSignedIn } = props;
     const navigate = useNavigate();
 
-    const handleLogin = () => {
+    const handleLoginWithGoogle = () => {
         signInWithPopup(auth, provider)
             .then(() => {
                 localStorage.setItem('isSignedIn', 'true');
@@ -24,7 +24,11 @@ export const Login: React.FC<Props> = (props: Props) => {
             });
     }
 
+    const handleLoginWithTwitter = () => {
+        console.log('Login with twitter');
+    }
+
     return (
-        <LoginPresenter title={title} onClick={handleLogin} />
+        <LoginPresenter title={title} onHandleLoginWithGoogle={handleLoginWithGoogle} onHandleLoginWithTwitter={handleLoginWithTwitter} />
     );
 };
