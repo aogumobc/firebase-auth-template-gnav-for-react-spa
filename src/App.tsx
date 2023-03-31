@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import { GlobalNav } from './components/Navigations/GlobalNav/container';
 import { Home } from './components/Pages/Home/container';
 import { Login } from './components/Pages/Login/container';
